@@ -26,29 +26,52 @@ class CameraNode(Node):
             self.get_logger().error("Failed to grab frame")
             return
 
-        # Apply underwater filters
+        # --- Step 1: Contrast stretch ---
+        def contrast_stretch(frame):
+            lab = cv.cvtColor(frame, cv.COLOR_BGR2LAB)
+            l, a, b = cv.split(lab)
+            l = cv.normalize(l, None, 0, 255, cv.NORM_MINMAX)
+            lab = cv.merge((l, a, b))
+            return cv.cvtColor(lab, cv.COLOR_LAB2BGR)
+        frame = contrast_stretch(frame)
+
+        # --- Step 2: CLAHE ---
         lab = cv.cvtColor(frame, cv.COLOR_BGR2LAB)
         l, a, b = cv.split(lab)
         clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
         l = clahe.apply(l)
-        lab = cv.merge((l,a,b))
+        lab = cv.merge((l, a, b))
         frame = cv.cvtColor(lab, cv.COLOR_LAB2BGR)
 
-        # Boost reds
+        # --- Step 3: Red boost ---
         b, g, r = cv.split(frame)
         r = cv.addWeighted(r, 1.5, g, -0.2, 0)
         frame = cv.merge((b, g, r))
 
-        # Gamma correction
-        gamma = 1.2
-        lookup = np.array([((i / 255.0) ** (1.0 / gamma)) * 255 for i in range(256)]).astype("uint8")
+        # --- Step 4: Adaptive gamma ---
+        mean_brightness = np.mean(cv.cvtColor(frame, cv.COLOR_BGR2GRAY))
+        gamma = 1.2 if mean_brightness < 100 else 0.9
+        lookup = np.array([((i / 255.0) ** (1.0 / gamma)) * 255
+                        for i in range(256)]).astype("uint8")
         frame = cv.LUT(frame, lookup)
 
-        # Publish to ROS2
+        # --- Step 5: White balance ---
+        def white_balance(frame):
+            result = cv.cvtColor(frame, cv.COLOR_BGR2LAB)
+            avg_a = np.average(result[:, :, 1])
+            avg_b = np.average(result[:, :, 2])
+            result[:, :, 1] = result[:, :, 1] - ((avg_a - 128) *
+                                                (result[:, :, 0] / 255.0) * 1.1)
+            result[:, :, 2] = result[:, :, 2] - ((avg_b - 128) *
+                                                (result[:, :, 0] / 255.0) * 1.1)
+            return cv.cvtColor(result, cv.COLOR_LAB2BGR)
+        frame = white_balance(frame)
+
+        # --- Publish to ROS2 ---
         msg = self.bridge.cv2_to_imgmsg(frame, encoding='bgr8')
         self.publisher_.publish(msg)
 
-        # Optional: display window
+        # --- Optional display ---
         cv.imshow("Underwater Camera Feed", frame)
         if cv.waitKey(1) & 0xFF == ord('q'):
             self.cap.release()
