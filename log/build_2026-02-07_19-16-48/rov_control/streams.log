@@ -1,0 +1,40 @@
+[1.210s] Invoking command in '/home/shashwat/test_ws/src/SubMerge-CV-/rov_control': PYTHONPATH=/home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/rov_control build --build-base /home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/build install --record /home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/install.log --single-version-externally-managed install_data
+[1.512s] running egg_info
+[1.512s] creating ../build/rov_control/rov_control.egg-info
+[1.513s] writing ../build/rov_control/rov_control.egg-info/PKG-INFO
+[1.513s] writing dependency_links to ../build/rov_control/rov_control.egg-info/dependency_links.txt
+[1.513s] writing entry points to ../build/rov_control/rov_control.egg-info/entry_points.txt
+[1.513s] writing requirements to ../build/rov_control/rov_control.egg-info/requires.txt
+[1.514s] writing top-level names to ../build/rov_control/rov_control.egg-info/top_level.txt
+[1.514s] writing manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'
+[1.515s] reading manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'
+[1.516s] writing manifest file '../build/rov_control/rov_control.egg-info/SOURCES.txt'
+[1.516s] running build
+[1.517s] running build_py
+[1.517s] creating /home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/build
+[1.517s] creating /home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/build/lib
+[1.517s] creating /home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/build/lib/rov_control
+[1.517s] copying rov_control/thruster_controller.py -> /home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/build/lib/rov_control
+[1.517s] copying rov_control/__init__.py -> /home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/build/lib/rov_control
+[1.517s] running install
+[1.517s] running install_lib
+[1.519s] creating /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/lib/python3.10/site-packages/rov_control
+[1.519s] copying /home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/build/lib/rov_control/thruster_controller.py -> /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/lib/python3.10/site-packages/rov_control
+[1.519s] copying /home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/build/lib/rov_control/__init__.py -> /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/lib/python3.10/site-packages/rov_control
+[1.520s] byte-compiling /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/lib/python3.10/site-packages/rov_control/thruster_controller.py to thruster_controller.cpython-310.pyc
+[1.521s] byte-compiling /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/lib/python3.10/site-packages/rov_control/__init__.py to __init__.cpython-310.pyc
+[1.521s] running install_data
+[1.521s] creating /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/share/ament_index
+[1.522s] creating /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/share/ament_index/resource_index
+[1.522s] creating /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/share/ament_index/resource_index/packages
+[1.522s] copying resource/rov_control -> /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/share/ament_index/resource_index/packages
+[1.522s] copying package.xml -> /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/share/rov_control
+[1.522s] creating /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/share/rov_control/launch
+[1.522s] copying launch/rov_system.launch.py -> /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/share/rov_control/launch
+[1.522s] running install_egg_info
+[1.524s] Copying ../build/rov_control/rov_control.egg-info to /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/lib/python3.10/site-packages/rov_control-0.0.0-py3.10.egg-info
+[1.524s] running install_scripts
+[1.544s] Installing serial_bridge script to /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/lib/rov_control
+[1.544s] Installing thruster_controller script to /home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/lib/rov_control
+[1.544s] writing list of installed files to '/home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/install.log'
+[1.576s] Invoked command in '/home/shashwat/test_ws/src/SubMerge-CV-/rov_control' returned '0': PYTHONPATH=/home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/shashwat/test_ws/src/SubMerge-CV-/install/rov_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/rov_control build --build-base /home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/build install --record /home/shashwat/test_ws/src/SubMerge-CV-/build/rov_control/install.log --single-version-externally-managed install_data
